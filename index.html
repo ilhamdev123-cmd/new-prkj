@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>TripBudget — Liburan Sesuai Budget</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="App.css" />
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container nav-content">
+      <div class="logo">
+        <span>✈️</span>
+        <strong>Trip<span>Budget</span></strong>
+      </div>
+
+      <div class="nav-menu">
+        <a href="#home">Beranda</a>
+        <a href="#cara-kerja">Cara Kerja</a>
+        <a href="#rekomendasi">Rekomendasi</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+
+      <div class="hero-text">
+        <span class="badge">🇮🇩 Jelajahi Indonesia</span>
+
+        <h1>
+          Liburan seru,
+          <span>sesuai budget kamu.</span>
+        </h1>
+
+        <p>
+          Tentukan tujuan, jumlah orang, dan budget.
+          TripBudget akan membantu menyusun kombinasi
+          penginapan, destinasi, makanan, dan estimasi
+          perjalanan untukmu.
+        </p>
+      </div>
+
+
+      <!-- SEARCH CARD -->
+      <div class="search-card">
+
+        <div class="search-title">
+          <h2>Rencanakan Liburanmu</h2>
+          <p>Isi data perjalanan di bawah ini</p>
+        </div>
+
+        <form id="tripForm">
+
+          <div class="form-grid">
+
+            <!-- DESTINATION -->
+            <div class="form-group full">
+              <label for="destination">
+                📍 Mau liburan ke mana?
+              </label>
+
+              <select id="destination" required>
+                <option value="">Pilih tujuan</option>
+
+                <optgroup label="Jawa Barat">
+                  <option value="bandung">Bandung</option>
+                  <option value="bogor">Bogor</option>
+                  <option value="sukabumi">Sukabumi</option>
+                  <option value="garut">Garut</option>
+                  <option value="ciamis">Ciamis</option>
+                  <option value="pangandaran">Pangandaran</option>
+                </optgroup>
+
+                <optgroup label="Jawa Tengah">
+                  <option value="yogyakarta">Yogyakarta</option>
+                  <option value="semarang">Semarang</option>
+                  <option value="solo">Solo</option>
+                  <option value="magelang">Magelang</option>
+                  <option value="dieng">Dieng</option>
+                </optgroup>
+
+                <optgroup label="Jawa Timur">
+                  <option value="malang">Malang</option>
+                  <option value="batu">Batu</option>
+                  <option value="surabaya">Surabaya</option>
+                  <option value="banyuwangi">Banyuwangi</option>
+                  <option value="probolinggo">Probolinggo</option>
+                </optgroup>
+
+                <optgroup label="Bali & Nusa Tenggara">
+                  <option value="bali">Bali</option>
+                  <option value="lombok">Lombok</option>
+                  <option value="labuan-bajo">Labuan Bajo</option>
+                </optgroup>
+
+                <optgroup label="Sumatra">
+                  <option value="medan">Medan</option>
+                  <option value="padang">Padang</option>
+                  <option value="palembang">Palembang</option>
+                  <option value="lampung">Lampung</option>
+                  <option value="batam">Batam</option>
+                </optgroup>
+
+                <optgroup label="Kalimantan">
+                  <option value="balikpapan">Balikpapan</option>
+                  <option value="banjarmasin">Banjarmasin</option>
+                  <option value="pontianak">Pontianak</option>
+                </optgroup>
+
+                <optgroup label="Sulawesi">
+                  <option value="makassar">Makassar</option>
+                  <option value="manado">Manado</option>
+                  <option value="gorontalo">Gorontalo</option>
+                </optgroup>
+
+              </select>
+            </div>
+
+
+            <!-- PEOPLE -->
+            <div class="form-group">
+
+              <label for="people">
+                👥 Jumlah orang
+              </label>
+
+              <div class="input-with-icon">
+                <input
+                  type="number"
+                  id="people"
+                  min="1"
+                  max="20"
+                  value="2"
+                  required
+                />
+
+                <span>orang</span>
+              </div>
+
+            </div>
+
+
+            <!-- DAYS -->
+            <div class="form-group">
+
+              <label for="days">
+                📅 Lama perjalanan
+              </label>
+
+              <div class="input-with-icon">
+
+                <input
+                  type="number"
+                  id="days"
+                  min="1"
+                  max="14"
+                  value="3"
+                  required
+                />
+
+                <span>hari</span>
+
+              </div>
+
+            </div>
+
+
+            <!-- BUDGET -->
+            <div class="form-group full">
+
+              <label for="budget">
+                💰 Total budget
+              </label>
+
+              <div class="budget-input">
+
+                <span>Rp</span>
+
+                <input
+                  type="number"
+                  id="budget"
+                  min="100000"
+                  step="50000"
+                  placeholder="3.000.000"
+                  required
+                />
+
+              </div>
+
+              <div class="budget-hints">
+
+                <button type="button" data-budget="1000000">
+                  Rp1 Juta
+                </button>
+
+                <button type="button" data-budget="2000000">
+                  Rp2 Juta
+                </button>
+
+                <button type="button" data-budget="3000000">
+                  Rp3 Juta
+                </button>
+
+                <button type="button" data-budget="5000000">
+                  Rp5 Juta
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <button class="search-btn" type="submit">
+            <span>🔎</span>
+            Cari Rekomendasi Liburan
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="cara-kerja">
+
+    <div class="container">
+
+      <div class="section-heading">
+        <span>MUDAH DAN PRAKTIS</span>
+        <h2>Bagaimana TripBudget bekerja?</h2>
+        <p>
+          Kami membantu menyusun perjalanan berdasarkan
+          budget dan lokasi yang kamu pilih.
+        </p>
+      </div>
+
+
+      <div class="steps">
+
+        <div class="step-card">
+
+          <div class="step-number">01</div>
+
+          <div class="step-icon">📍</div>
+
+          <h3>Pilih Tujuan</h3>
+
+          <p>
+            Tentukan kota atau daerah yang ingin kamu kunjungi.
+          </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+          <div class="step-number">02</div>
+
+          <div class="step-icon">💰</div>
+
+          <h3>Tentukan Budget</h3>
+
+          <p>
+            Masukkan budget dan jumlah orang yang ikut perjalanan.
+          </p>
+
+        </div>
+
+
+        <div class="step-card">
+
+          <div class="step-number">03</div>
+
+          <div class="step-icon">✨</div>
+
+          <h3>Dapatkan Trip</h3>
+
+          <p>
+            Sistem menyusun hotel, destinasi, makanan,
+            dan estimasi biaya perjalanan.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- RESULT -->
+  <section class="result-section hidden" id="rekomendasi">
+
+    <div class="container">
+
+      <div class="result-header">
+
+        <div>
+          <span class="result-label">REKOMENDASI UNTUK KAMU</span>
+
+          <h2 id="resultTitle">
+            Trip Bandung
+          </h2>
+
+          <p id="resultSubtitle">
+            2 orang • 3 hari
+          </p>
+        </div>
+
+
+        <button
+          class="reset-btn"
+          id="resetBtn"
+        >
+          ← Buat Perjalanan Baru
+        </button>
+
+      </div>
+
+
+      <!-- BUDGET SUMMARY -->
+      <div class="budget-summary">
+
+        <div class="budget-main">
+
+          <div class="summary-label">
+            Budget perjalanan
+          </div>
+
+          <div class="summary-budget" id="summaryBudget">
+            Rp3.000.000
+          </div>
+
+          <div class="progress-container">
+
+            <div
+              class="progress-bar"
+              id="progressBar"
+            ></div>
+
+          </div>
+
+          <div class="progress-info">
+
+            <span id="usedBudget">
+              Terpakai Rp0
+            </span>
+
+            <span id="remainingBudget">
+              Sisa Rp0
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="summary-item">
+
+          <span>🏨 Penginapan</span>
+
+          <strong id="hotelCost">
+            Rp0
+          </strong>
+
+        </div>
+
+
+        <div class="summary-item">
+
+          <span>🎟️ Destinasi</span>
+
+          <strong id="destinationCost">
+            Rp0
+          </strong>
+
+        </div>
+
+
+        <div class="summary-item">
+
+          <span>🍜 Makanan</span>
+
+          <strong id="foodCost">
+            Rp0
+          </strong>
+
+        </div>
+
+
+        <div class="summary-item">
+
+          <span>🚗 Transportasi</span>
+
+          <strong id="transportCost">
+            Rp0
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <!-- FILTER -->
+      <div class="filter-bar">
+
+        <div>
+
+          <strong>Urutkan rekomendasi</strong>
+
+          <span>
+            Berdasarkan kecocokan budget
+          </span>
+
+        </div>
+
+        <select id="sortFilter">
+
+          <option value="recommended">
+            ✨ Paling cocok
+          </option>
+
+          <option value="cheapest">
+            💰 Termurah
+          </option>
+
+          <option value="rating">
+            ⭐ Rating tertinggi
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- TRIP CARDS -->
+      <div
+        class="trip-list"
+        id="tripList"
+      ></div>
+
+      <div class="selected-trip hidden" id="selectedTrip" aria-live="polite"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="container footer-content">
+
+      <div class="logo">
+        <span>✈️</span>
+        <strong>Trip<span>Budget</span></strong>
+      </div>
+
+      <p>
+        Rencanakan liburan Indonesia tanpa bikin kantong jebol.
+      </p>
+
+      <small>
+        © 2026 TripBudget. Prototype.
+      </small>
+        </div>
+
+  </footer>
+
+
+  <script src="App.js"></script>
+
+</body>
+</html>
