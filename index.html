@@ -19,7 +19,6 @@
   <nav class="navbar">
     <div class="container nav-content">
       <div class="logo">
-        <span>✈️</span>
         <strong>Trip<span>Budget</span></strong>
       </div>
 
@@ -40,7 +39,7 @@
     <div class="container hero-content">
 
       <div class="hero-text">
-        <span class="badge">🇮🇩 Jelajahi Indonesia</span>
+        <span class="badge">Jelajahi Indonesia</span>
 
         <h1>
           Liburan seru,
@@ -50,7 +49,7 @@
         <p>
           Tentukan tujuan, jumlah orang, dan budget.
           TripBudget akan membantu menyusun kombinasi
-          penginapan, destinasi, makanan, dan estimasi
+          hotel, destinasi wisata, restoran, dan estimasi
           perjalanan untukmu.
         </p>
       </div>
@@ -71,7 +70,7 @@
             <!-- DESTINATION -->
             <div class="form-group full">
               <label for="destination">
-                📍 Mau liburan ke mana?
+                Mau liburan ke mana?
               </label>
 
               <select id="destination" required>
@@ -136,16 +135,16 @@
             <div class="form-group">
 
               <label for="people">
-                👥 Jumlah orang
+                Jumlah orang
               </label>
 
               <div class="input-with-icon">
                 <input
                   type="number"
                   id="people"
-                  min="1"
+                  min="0"
                   max="20"
-                  value="2"
+                  value="0"
                   required
                 />
 
@@ -159,7 +158,7 @@
             <div class="form-group">
 
               <label for="days">
-                📅 Lama perjalanan
+                Lama perjalanan
               </label>
 
               <div class="input-with-icon">
@@ -167,9 +166,9 @@
                 <input
                   type="number"
                   id="days"
-                  min="1"
+                  min="0"
                   max="14"
-                  value="3"
+                  value="0"
                   required
                 />
 
@@ -184,7 +183,7 @@
             <div class="form-group full">
 
               <label for="budget">
-                💰 Total budget
+                Total budget
               </label>
 
               <div class="budget-input">
@@ -194,9 +193,10 @@
                 <input
                   type="number"
                   id="budget"
-                  min="100000"
+                  min="0"
                   step="50000"
                   placeholder="3.000.000"
+                  value="0"
                   required
                 />
 
@@ -228,7 +228,6 @@
 
 
           <button class="search-btn" type="submit">
-            <span>🔎</span>
             Cari Rekomendasi Liburan
           </button>
 
@@ -261,8 +260,6 @@
 
           <div class="step-number">01</div>
 
-          <div class="step-icon">📍</div>
-
           <h3>Pilih Tujuan</h3>
 
           <p>
@@ -275,8 +272,6 @@
         <div class="step-card">
 
           <div class="step-number">02</div>
-
-          <div class="step-icon">💰</div>
 
           <h3>Tentukan Budget</h3>
 
@@ -291,12 +286,10 @@
 
           <div class="step-number">03</div>
 
-          <div class="step-icon">✨</div>
-
           <h3>Dapatkan Trip</h3>
 
           <p>
-            Sistem menyusun hotel, destinasi, makanan,
+            Sistem menyusun hotel, destinasi wisata, restoran,
             dan estimasi biaya perjalanan.
           </p>
 
@@ -378,7 +371,7 @@
 
         <div class="summary-item">
 
-          <span>🏨 Penginapan</span>
+          <span>Hotel (per malam)</span>
 
           <strong id="hotelCost">
             Rp0
@@ -389,7 +382,7 @@
 
         <div class="summary-item">
 
-          <span>🎟️ Destinasi</span>
+          <span>Destinasi wisata</span>
 
           <strong id="destinationCost">
             Rp0
@@ -400,7 +393,7 @@
 
         <div class="summary-item">
 
-          <span>🍜 Makanan</span>
+          <span>Restoran (per hari)</span>
 
           <strong id="foodCost">
             Rp0
@@ -411,7 +404,7 @@
 
         <div class="summary-item">
 
-          <span>🚗 Transportasi</span>
+          <span>Transportasi</span>
 
           <strong id="transportCost">
             Rp0
@@ -438,15 +431,15 @@
         <select id="sortFilter">
 
           <option value="recommended">
-            ✨ Paling cocok
+            Paling cocok
           </option>
 
           <option value="cheapest">
-            💰 Termurah
+            Termurah
           </option>
 
           <option value="rating">
-            ⭐ Rating tertinggi
+            Rating tertinggi
           </option>
 
         </select>
@@ -473,7 +466,6 @@
     <div class="container footer-content">
 
       <div class="logo">
-        <span>✈️</span>
         <strong>Trip<span>Budget</span></strong>
       </div>
 

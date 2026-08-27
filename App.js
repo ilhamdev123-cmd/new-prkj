@@ -841,7 +841,7 @@ function renderResult(
 
 
   resultSubtitle.textContent =
-    `${people} orang • ${days} hari ${days > 1 ? `• ${days - 1} malam` : ""}`;
+    `${people} orang • ${days} hari ${days > 1 ? `• ${days - 1} malam` : ""} • biaya adalah estimasi, cek detail lokasi sebelum berangkat`;
 
 
   summaryBudget.textContent =
@@ -1017,7 +1017,7 @@ function renderTrips(trips) {
               ${statusClass}
             >
               ${index === 0
-                ? "⭐ REKOMENDASI TERBAIK"
+                ? "REKOMENDASI TERBAIK"
                 : budgetStatus}
             </span>
 
@@ -1050,7 +1050,7 @@ function renderTrips(trips) {
           <div class="place-card">
 
             <div class="place-type">
-              🏨 PENGINAPAN
+              HOTEL
             </div>
 
             <img
@@ -1065,17 +1065,17 @@ function renderTrips(trips) {
             </h4>
 
             <div class="rating">
-              ⭐ ${trip.hotel.rating}
+              ${trip.hotel.rating}
             </div>
 
             <div class="place-info">
 
               <span>
-                📍 ${trip.hotel.distance} km
+                ${trip.hotel.distance} km dari pusat area
               </span>
 
               <span>
-                🛏️ ${trip.hotel.price ? "Kamar / malam" : ""}
+                Harga kamar / malam
               </span>
 
             </div>
@@ -1087,8 +1087,8 @@ function renderTrips(trips) {
 
             <div class="place-distance">
               ${trip.hotel.distance <= 30
-                ? "✓ Dalam radius 30 km"
-                : "✕ Di luar radius"}
+                ? "Dalam radius 30 km"
+                : "Di luar radius"}
             </div>
 
           </div>
@@ -1099,7 +1099,7 @@ function renderTrips(trips) {
           <div class="place-card">
 
             <div class="place-type">
-              🎯 DESTINASI
+              DESTINASI WISATA
             </div>
 
             <img
@@ -1114,17 +1114,17 @@ function renderTrips(trips) {
             </h4>
 
             <div class="rating">
-              ⭐ ${trip.place.rating}
+              ${trip.place.rating}
             </div>
 
             <div class="place-info">
 
               <span>
-                📍 ${trip.place.distance} km
+                ${trip.place.distance} km dari pusat area
               </span>
 
               <span>
-                🎟️ Tiket per orang
+                Tiket per orang
               </span>
 
             </div>
@@ -1135,7 +1135,7 @@ function renderTrips(trips) {
             </div>
 
             <div class="place-distance">
-              ✓ Dalam radius 30 km
+              Dalam radius 30 km
             </div>
 
           </div>
@@ -1146,7 +1146,7 @@ function renderTrips(trips) {
           <div class="place-card">
 
             <div class="place-type">
-              🍜 MAKANAN
+              RESTORAN
             </div>
 
             <img
@@ -1161,28 +1161,28 @@ function renderTrips(trips) {
             </h4>
 
             <div class="rating">
-              ⭐ ${trip.restaurant.rating}
+              ${trip.restaurant.rating}
             </div>
 
             <div class="place-info">
 
               <span>
-                📍 ${trip.restaurant.distance} km
+                ${trip.restaurant.distance} km dari pusat area
               </span>
 
               <span>
-                🍽️ Estimasi / orang
+                Estimasi makan / orang / hari
               </span>
 
             </div>
 
             <div class="place-price">
               ${formatRupiah(trip.restaurant.price)}
-              <small>/ orang</small>
+              <small>/ orang / hari</small>
             </div>
 
             <div class="place-distance">
-              ✓ Dalam radius 30 km
+              Dalam radius 30 km
             </div>
 
           </div>
@@ -1209,7 +1209,7 @@ function renderTrips(trips) {
             </div>
 
             <div>
-              <span>Makanan</span>
+              <span>Restoran</span>
               <strong>
                 ${formatRupiah(trip.foodTotal)}
               </strong>
@@ -1288,20 +1288,17 @@ function renderSelectedTrip(trip) {
 
   const locations = [
     {
-      icon: "🏨",
       type: "HOTEL",
       name: trip.hotel.name,
       address: `${trip.hotel.name}, ${currentDestinationName}, Indonesia`
     },
     {
-      icon: "🎯",
-      type: "DESTINASI",
+      type: "DESTINASI WISATA",
       name: trip.place.name,
       address: `${trip.place.name}, ${currentDestinationName}, Indonesia`
     },
     {
-      icon: "🍜",
-      type: "MAKANAN",
+      type: "RESTORAN",
       name: trip.restaurant.name,
       address: `${trip.restaurant.name}, ${currentDestinationName}, Indonesia`
     }
@@ -1327,7 +1324,6 @@ function renderSelectedTrip(trip) {
     <div class="location-list">
       ${locations.map(location => `
         <article class="location-item">
-          <span class="location-icon">${location.icon}</span>
           <div>
             <span class="place-type">${location.type}</span>
             <h3>${location.name}</h3>
@@ -1342,7 +1338,7 @@ function renderSelectedTrip(trip) {
       <div class="map-heading">
         <div>
           <span class="place-type">PETA PERJALANAN</span>
-          <h3>Hotel, destinasi, dan makanan</h3>
+          <h3>Hotel, destinasi wisata, dan restoran</h3>
         </div>
         <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(mapQuery)}" target="_blank" rel="noopener noreferrer">Buka rute di Google Maps ↗</a>
       </div>
